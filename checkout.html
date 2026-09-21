@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout - Fresh Veggies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <h1>🥕 Fresh Veggies</h1>
+
+        <p>Checkout</p>
+
+    </header>
+
+
+    <!-- Checkout -->
+    <div class="checkout">
+
+        <!-- Order Summary -->
+        <h2>🛒 Order Summary</h2>
+
+        <div id="checkoutItems"></div>
+
+
+        <!-- Total -->
+        <div class="checkout-total">
+
+            <h3>
+                Total: ₹<span id="checkoutTotal">0</span>
+            </h3>
+
+        </div>
+
+
+        <!-- Payment Method -->
+        <div class="payment-section">
+
+            <h2>💳 Payment Method</h2>
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="COD"
+                    checked
+                >
+
+                💵 Cash on Delivery
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="UPI"
+                >
+
+                📱 UPI
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Card"
+                >
+
+                💳 Credit / Debit Card
+
+            </label>
+
+        </div>
+
+
+        <!-- Customer Details -->
+        <h2>👤 Customer Details</h2>
+
+
+        <form id="orderForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter mobile number"
+                required
+            >
+
+
+            <textarea
+                id="address"
+                placeholder="Enter your full address"
+                required
+            ></textarea>
+
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter city"
+                required
+            >
+
+
+            <button type="submit">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>

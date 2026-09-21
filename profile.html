@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Profile - Fresh Veggies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <h1>🥕 Fresh Veggies</h1>
+
+        <p>My Profile</p>
+
+    </header>
+
+
+    <!-- Profile -->
+    <div class="profile-container">
+
+        <div class="profile-box">
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+            <h2 id="profileName">
+                User Name
+            </h2>
+
+            <div class="profile-details">
+
+                <p>
+                    <strong>📧 Email:</strong>
+                    <span id="profileEmail"></span>
+                </p>
+
+                <p>
+                    <strong>📱 Mobile:</strong>
+                    <span id="profileMobile"></span>
+                </p>
+
+            </div>
+
+
+            <button
+                class="profile-btn"
+                onclick="window.location.href='index.html'">
+
+                🏠 Back to Home
+
+            </button>
+
+
+            <button
+                class="profile-logout"
+                onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Get saved user
+
+        const savedUser =
+            JSON.parse(
+                localStorage.getItem("freshVeggiesUser")
+            );
+
+
+        // Check login
+
+        const isLoggedIn =
+            localStorage.getItem("freshVeggiesLoggedIn");
+
+
+        if (isLoggedIn !== "true" || !savedUser) {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        // Show user details
+
+        document.getElementById("profileName")
+            .textContent = savedUser.name;
+
+        document.getElementById("profileEmail")
+            .textContent = savedUser.email;
+
+        document.getElementById("profileMobile")
+            .textContent = savedUser.mobile;
+
+
+        // Logout
+
+        function logout() {
+
+            localStorage.removeItem(
+                "freshVeggiesLoggedIn"
+            );
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

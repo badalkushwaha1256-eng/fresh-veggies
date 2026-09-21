@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login - Fresh Veggies</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-box">
+
+            <h1>🥕 Fresh Veggies</h1>
+
+            <h2>Welcome Back!</h2>
+
+            <p class="auth-subtitle">
+                Login to your account
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- SIGNUP LINK -->
+
+            <p class="auth-link">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN JAVASCRIPT -->
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            // User input
+
+            const email =
+                document.getElementById("loginEmail").value.trim();
+
+            const password =
+                document.getElementById("loginPassword").value;
+
+
+            // Saved signup data
+
+            const savedUser =
+                JSON.parse(
+                    localStorage.getItem("freshVeggiesUser")
+                );
+
+
+            // Check account
+
+            if (!savedUser) {
+
+                alert(
+                    "Account not found! Please create an account first."
+                );
+
+                return;
+
+            }
+
+
+            // Check email and password
+
+            if (
+                email === savedUser.email &&
+                password === savedUser.password
+            ) {
+
+                // Login status save
+
+                localStorage.setItem(
+                    "freshVeggiesLoggedIn",
+                    "true"
+                );
+
+
+                alert(
+                    "Login successful! Welcome " +
+                    savedUser.name
+                );
+
+
+                // Go to home page
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+            else {
+
+                alert(
+                    "Invalid email or password!"
+                );
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

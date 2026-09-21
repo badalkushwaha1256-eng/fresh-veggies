@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fresh Vegetable App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="user-area">
+
+            <span 
+                 id="welcomeUser" 
+                 onclick="window.location.href='profile.html'">👤Welcome</span>
+
+            <button
+                type="button"
+                onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-count"
+            onclick="goToCart()">
+
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+
+        </div>
+
+
+        <div
+            class="orders-button"
+            onclick="window.location.href='orders.html'">
+
+            📦 My Orders
+
+        </div>
+
+
+        <h1>
+            🥕 Fresh Veggies
+        </h1>
+
+        <p>
+            Fresh vegetables at your doorstep
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         BANNER
+    ========================== -->
+
+    <div class="banner">
+
+        <div>
+
+            <h2>
+                Fresh & Healthy Vegetables
+            </h2>
+
+            <p>
+                Farm fresh vegetables at affordable prices
+            </p>
+
+            <button
+                type="button"
+                onclick="document.querySelector('.vegetable').scrollIntoView({behavior:'smooth'})">
+
+                Shop Now
+
+            </button>
+
+        </div>
+
+
+        <div class="banner-emoji">
+
+            🥕 🥦 🍅 🧅
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="Search vegetables...">
+
+    </div>
+
+
+
+    <!-- =========================
+         VEGETABLE HEADING
+    ========================== -->
+
+    <h2>
+        Vegetables
+    </h2>
+
+
+
+    <!-- =========================
+         VEGETABLE CARDS
+    ========================== -->
+
+    <div class="vegetable">
+
+
+
+        <!-- POTATO -->
+
+        <div class="card">
+
+            <img
+                src="https://www.simplotfood.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F0dkgxhks0leg%2FRKiZ605RAV8kjDQnxFCWP%2Fb03b8729817c90b29b88d536bfd37ac5%2F9-Unusual-Uses-For-Potatoes.jpg%3Ffm%3Dwebp&w=1920&q=75"
+                alt="Potato">
+
+            <h3>
+                Potato
+            </h3>
+
+            <p>
+                ₹30 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Potato', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Potato', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Potato', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- TOMATO -->
+
+        <div class="card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSspaF5mmul3fPerGXzU6UMSXwztlUgHx_XIum0-nO-4w&s=10"
+                alt="Tomato">
+
+            <h3>
+                Tomato
+            </h3>
+
+            <p>
+                ₹40 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Tomato', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Tomato', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Tomato', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ONION -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\badal\Documents\WhatsApp Image 2026-09-16 at 9.50.12 PM.jpeg"
+                alt="Onion">
+
+            <h3>
+                Onion
+            </h3>
+
+            <p>
+                ₹35 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Onion', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Onion', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Onion', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CARROT -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\badal\Documents\WhatsApp Image 2026-09-16 at 9.54.55 PM.jpeg"
+                alt="Carrot">
+
+            <h3>
+                Carrot
+            </h3>
+
+            <p>
+                ₹50 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Carrot', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Carrot', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Carrot', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CUCUMBER -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\badal\Documents\WhatsApp Image 2026-09-16 at 9.58.23 PM.jpeg"
+                alt="Cucumber">
+
+            <h3>
+                Cucumber
+            </h3>
+
+            <p>
+                ₹40 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Cucumber', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Cucumber', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Cucumber', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PEA -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\badal\Documents\WhatsApp Image 2026-09-17 at 9.09.02 AM.jpeg"
+                alt="Pea">
+
+            <h3>
+                Pea
+            </h3>
+
+            <p>
+                ₹40 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Pea', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Pea', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Pea', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- BRINJAL -->
+
+        <div class="card">
+
+            <img
+                src="c:\Users\badal\Documents\WhatsApp Image 2026-09-17 at 9.13.51 AM.jpeg"
+                alt="Brinjal">
+
+            <h3>
+                Brinjal
+            </h3>
+
+            <p>
+                ₹40 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Brinjal', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Brinjal', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Brinjal', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CAPSICUM -->
+
+        <div class="card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX6NfC9pIMA3WP2Oh38VigC31oBLuG92jG-jItTeelRw&s=10"
+                alt="Capsicum">
+
+            <h3>
+                Capsicum
+            </h3>
+
+            <p>
+                ₹100 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Capsicum', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Capsicum', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Capsicum', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- BROCCOLI -->
+
+        <div class="card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe8TbfoVJs_0k6i-Gl2CMsYWZlo2GJDT3FlxTX3pxPqw&s=10"
+                alt="Broccoli">
+
+            <h3>
+                Broccoli
+            </h3>
+
+            <p>
+                ₹50 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Broccoli', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Broccoli', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Broccoli', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CHILLI -->
+
+        <div class="card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjSHwXBhdKbvAqQ00KUn6nNlyhX41EbdOHueut2TSphg&s=10"
+                alt="Chilli">
+
+            <h3>
+                Chilli
+            </h3>
+
+            <p>
+                ₹100 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Chilli', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Chilli', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Chilli', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+        <!-- LADY FINGER -->
+
+        <div class="card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMZY7OsH4pOXrnBm8-vF6FsihJqBNaISzm77psKAxMqA&s=10"
+                alt="Lady Finger">
+
+            <h3>
+                Lady Finger
+            </h3>
+
+            <p>
+                ₹30 / kg
+            </p>
+
+
+            <div class="weight-options">
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Lady Finger', 250, this)">
+
+                    250g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Lady Finger', 500, this)">
+
+                    500g
+
+                </button>
+
+                <button
+                    type="button"
+                    onclick="selectWeight('Lady Finger', 1000, this)">
+
+                    1kg
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-to-cart"
+                type="button">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CART
+    ========================== -->
+
+    <div class="cart">
+
+        <h2>
+            🛒 My Cart
+        </h2>
+
+
+        <div id="cartItems">
+        </div>
+
+
+        <div class="cart-bottom">
+
+            <h3>
+                Total:
+                ₹<span id="total">0</span>
+            </h3>
+
+
+            <button
+                id="checkoutBtn"
+                type="button">
+
+                Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
