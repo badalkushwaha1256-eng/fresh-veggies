@@ -1,7 +1,20 @@
- const checkoutItems = document.getElementById("checkoutItems");
-const checkoutTotal = document.getElementById("checkoutTotal");
+import { db } from "./firebase.js";
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+import {
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+
+const checkoutItems =
+    document.getElementById("checkoutItems");
+
+const checkoutTotal =
+    document.getElementById("checkoutTotal");
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
 
 let total = 0;
 
@@ -12,11 +25,13 @@ let total = 0;
 
 cart.forEach(function(item) {
 
-    const itemTotal = item.price * item.quantity;
+    const itemTotal =
+        item.price * item.quantity;
 
     total += itemTotal;
 
-    const div = document.createElement("div");
+    const div =
+        document.createElement("div");
 
     div.innerHTML = `
         <div class="checkout-item">
@@ -38,7 +53,8 @@ cart.forEach(function(item) {
 });
 
 
-checkoutTotal.textContent = total.toFixed(2);
+checkoutTotal.textContent =
+    total.toFixed(2);
 
 
 // =========================
@@ -49,91 +65,102 @@ const orderForm =
     document.getElementById("orderForm");
 
 
-orderForm.addEventListener("submit", function(event) {
+orderForm.addEventListener(
+    "submit",
+    async function(event) {
 
-    event.preventDefault();
-
-
-    const name =
-        document.getElementById("name").value.trim();
-
-    const mobile =
-        document.getElementById("mobile").value.trim();
-
-    const address =
-        document.getElementById("address").value.trim();
-
-    const city =
-        document.getElementById("city").value.trim();
+        event.preventDefault();
 
 
-    const payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        ).value;
+        const name =
+            document.getElementById("name").value.trim();
+
+        const mobile =
+            document.getElementById("mobile").value.trim();
+
+        const address =
+            document.getElementById("address").value.trim();
+
+        const city =
+            document.getElementById("city").value.trim();
 
 
-    let orders =
-        JSON.parse(
-            localStorage.getItem("orders")
-        ) || [];
+        const payment =
+            document.querySelector(
+                'input[name="payment"]:checked'
+            ).value;
 
 
-    // =========================
-    // CREATE ORDER ID
-    // =========================
+        // =========================
+        // CREATE ORDER ID
+        // =========================
 
-    const orderId =
-        "FV" +
-        Date.now();
-
-
-    // =========================
-    // CREATE NEW ORDER
-    // =========================
-
-    const newOrder = {
-
-        orderId: orderId,
-
-        date: new Date().toLocaleString(),
-
-        name: name,
-
-        mobile: mobile,
-
-        address: address,
-
-        city: city,
-
-        payment: payment,
-
-        status: "Order Confirmed",
-
-        items: cart,
-
-        total: total.toFixed(2)
-
-    };
+        const orderId =
+            "FV" + Date.now();
 
 
-    orders.push(newOrder);
+        // =========================
+        // CREATE NEW ORDER
+        // =========================
+
+        const newOrder = {
+
+            orderId: orderId,
+
+            date:
+                new Date().toLocaleString(),
+
+            name: name,
+
+            mobile: mobile,
+
+            address: address,
+
+            city: city,
+
+            payment: payment,
+
+            status: "Order Confirmed",
+
+            items: cart,
+
+            total: total.toFixed(2)
+
+        };
 
 
-    localStorage.setItem(
-        "orders",
-        JSON.stringify(orders)
-    );
+        // =========================
+        // SAVE ORDER TO FIRESTORE
+        // =========================
+
+        try {
+
+            await addDoc(
+                collection(db, "orders"),
+                newOrder
+            );
 
 
-    // Empty cart
+            // Empty cart
 
-    localStorage.removeItem("cart");
+            localStorage.removeItem("cart");
 
 
-    // Go to success page
+            // Go to success page
 
-    window.location.href =
-        "success.html";
+            window.location.href =
+                "success.html";
 
-});
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Order save nahi ho paya. Please try again."
+            );
+
+        }
+
+    }
+);
